@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2017-11-21T14:55:22Z</date>
+    <date>2017-11-21T15:05:47Z</date>
     <groups>
         <group>
             <name>
@@ -13,7 +13,7 @@
         <template>
             <template>Template Microsoft MSMQ</template>
             <name>Template Microsoft MSMQ</name>
-            <description/>
+            <description>The Microsoft Message Queue Monitor is a Zabbix template complete with PowerShell scripts that will allow you to monitor all of your Microsoft Message Queues quickly and easily. All queues will be discovered when the template is properly applied to a client running the MSMQ service. For your convenience all triggers are disabled by default. To be alerted when a queue has a message count greater than 100 simply enable the generated trigger.</description>
             <groups>
                 <group>
                     <name>
@@ -33,7 +33,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>orgmsmq.discovery</key>
+                    <key>cecmsmq.discovery</key>
                     <delay>30</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -59,7 +59,7 @@
                         <conditions/>
                     </filter>
                     <lifetime>30</lifetime>
-                    <description>The Microsoft Message Queue Monitor is a Zabbix template complete with PowerShell scripts that will allow you to monitor all of your Microsoft Message Queues quickly and easily. All queues will be discovered when the template is properly applied to a client running the MSMQ service. For your convenience all triggers are disabled by default. To be alerted when a queue has a message count greater than 100 simply enable the generated trigger.</description>
+                    <description/>
                     <item_prototypes>
                         <item_prototype>
                             <name>Message Queue {#QUEUE}</name>
@@ -67,7 +67,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>orgmsmq.messagecount[{#QUEUE}]</key>
+                            <key>cecmsmq.messagecount[{#QUEUE}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>0</trends>
@@ -108,7 +108,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Microsoft MSMQ:orgmsmq.messagecount[{#QUEUE}].avg(5m)}&gt;100</expression>
+                            <expression>{Template Microsoft MSMQ:cecmsmq.messagecount[{#QUEUE}].avg(5m)}&gt;100</expression>
                             <name>Message Queue {#QUEUE} has exceeded 100 messages</name>
                             <url/>
                             <status>1</status>
