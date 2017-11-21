@@ -5,5 +5,5 @@
 # Mandatory: no
 # Default:
 # UserParameter=
-UserParameter=orgservice.discovery,powershell -NoProfile -ExecutionPolicy Bypass -File "C:\path\to\get_queues.ps1"
-UserParameter=orgservice.state[*],powershell -NoProfile -ExecutionPolicy Bypass -File C:\path\to\get_queuemessagecount.ps1 "$1"
+UserParameter=orgmsmq.discovery,powershell -NoProfile -ExecutionPolicy Bypass -File "C:\path\to\get_queues.ps1"
+UserParameter=orgmsmq.messagecount[*],powershell -NoProfile -ExecutionPolicy Bypass -File C:\path\to\get_queuemessagecount.ps1 "$1"
