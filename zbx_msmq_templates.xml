@@ -33,7 +33,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>cecmsmq.discovery</key>
+                    <key>orgmsmq.discovery</key>
                     <delay>30</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -67,7 +67,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>cecmsmq.messagecount[{#QUEUE}]</key>
+                            <key>orgmsmq.messagecount[{#QUEUE}]</key>
                             <delay>300</delay>
                             <history>90</history>
                             <trends>0</trends>
@@ -108,7 +108,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Microsoft MSMQ:cecmsmq.messagecount[{#QUEUE}].avg(5m)}&gt;100</expression>
+                            <expression>{Template Microsoft MSMQ:orgmsmq.messagecount[{#QUEUE}].avg(5m)}&gt;100</expression>
                             <name>Message Queue {#QUEUE} has exceeded 100 messages</name>
                             <url/>
                             <status>1</status>
