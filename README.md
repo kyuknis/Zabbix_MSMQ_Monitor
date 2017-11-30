@@ -7,4 +7,4 @@ The Microsoft Message Queue Monitor is a Zabbix template complete with PowerShel
   3. Save the configuration and restart the Zabbix agent (e.g. `Restart-Service -Name 'Zabbix Agent'`)
   4. Go to Zabbix -> Configuration -> Templates and click the "Import" button in the top right of the screen.
   5. Select "Choose file" to upload the "zbx_msmq_templates.xml" file to the Zabbix server and click "Import".
-  6. Apply the "Template Microsoft MSMQ" template to Windows host you want to monitor.
+  6. Apply the "Template Microsoft MSMQ" template to the Windows hosts you want to monitor.
