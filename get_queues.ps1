@@ -3,29 +3,20 @@
 #
 ################################################################################
 
+# Get all of the MSMQ Queues
 $queues = Get-MsmqQueue
-$index = 1
 
-Write-Host "{"
-Write-Host " `"data`":[`n"
+# Create the response template to build off of
+$response = @{data = @()}
+
+# Add each of the queues with the appropriate key ("{#QUEUE}") to the data array
 ForEach($q in $queues) {
-
   $preparedQueueName = $q.QueueName -replace "^[A-Za-z0-9\$]+\\", ""
-
-    if ($index -lt $queues.count)
-    {
-        $line= "{ `"{#QUEUE}`" : `"" + $preparedQueueName + "`" },"
-        write-host $line
-    }
-    elseif ($index -ge $queues.count)
-    {
-        $line= "{ `"{#QUEUE}`" : `"" + $preparedQueueName + "`" }"
-        write-host $line
-    }
-
-    $index++;
-
+  $response['data'] += @{'{#QUEUE}' = $preparedQueueName}
 }
-Write-Host
-Write-Host " ]"
-Write-Host "}"
+
+# Convert the response to JSON for Zabbix
+$response = ConvertTo-Json $response
+
+# Write the JSON encodedresponse fo the Zabbix agent to send to the server
+Write-Host $response
