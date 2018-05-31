@@ -12,7 +12,7 @@ $response = @{data = @()}
 # Add each of the queues with the appropriate key ("{#QUEUE}") to the data array
 ForEach($q in $queues) {
   $preparedQueueName = $q.QueueName -replace "^[A-Za-z0-9\$]+\\", ""
-  $response['data'] += @{'{#QUEUE}' = $preparedQueueName}
+  $response['data'] += @{ '{#QUEUE}' = $preparedQueueName }
 }
 
 # Convert the response to JSON for Zabbix
